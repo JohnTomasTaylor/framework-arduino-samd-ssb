@@ -600,5 +600,5 @@ extern "C" __attribute__((externally_visible)) void CAN1_Handler() {
 
 CANSAME5x *CANSAME5x::instances[2];
 
-CANSAME5x can0;
+CANSAME5x can0(PIN_CAN0_TX, PIN_CAN0_RX);
 CANSAME5x can1(PIN_CAN1_TX, PIN_CAN1_RX);
