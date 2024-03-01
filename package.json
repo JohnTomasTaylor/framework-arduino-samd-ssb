@@ -1,6 +1,6 @@
 {
   "name": "framework-arduino-samd-ssb",
-  "version": "1.7.12",
+  "version": "1.7.13",
   "description": "Arduino Wiring-based Framework for Microchip SAM D microcontrollers (Adafruit SAMD Core)",
   "keywords": [
     "framework",

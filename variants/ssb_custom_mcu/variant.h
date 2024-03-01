@@ -157,6 +157,7 @@ enum Pinsymbol {
   PB07,
   PB08,
   PB09,
+  PB13,
   PB14,
   PB15,
   PB22,
@@ -187,6 +188,9 @@ enum Pinsymbol {
 #define digitalPinHasPWM(P)        ( g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER )
 
 // additional symbol definitions used by arduino core
+
+//LEDS
+#define LEG_G                PB13
 
 #define PIN_DAC0             DAC0     // PA02
 #define PIN_DAC1             DAC1     // PA05
