@@ -74,8 +74,8 @@ enum Pinsymbol {
   
   //  ----------- ADC1 ------------
  
-  PIN0_ADC1, // PB04 (SWITCH on SHIELD)
-  PIN1_ADC1, // PB05 (LED_G on SHIELD)
+  PIN0_ADC1, // PB04 (SWITCH on SHIELD) now PB12
+  PIN1_ADC1, // PB05 (LED_G on SHIELD) now PB13
   PIN2_ADC1, // PB06
   PIN3_ADC1, // PB07
   PIN4_ADC1, // PB08 (has PWM)
@@ -83,17 +83,21 @@ enum Pinsymbol {
 
   //  ----------- I2C pins (SDA,SCL) ----------------
 
-  SDA0, // PA16
-  SCL0, // PA17
-  SDA1, // PA12
-  SCL1, // PA13
+  SDA0, // PA16 now PB08
+  SCL0, // PA17 now PB09
+  SDA1, // PA12 now PA12
+  SCL1, // PA13 now PA13
 
   // SPI pins (MISO,MOSI,SCK)
   // ----------------------
 
-  PIN_SPI_MISO, // PB22
-  PIN_SPI_MOSI, // PB23
-  PIN_SPI_SCK,  // PA17 (also SCL0 should be changed)
+  //PIN_SPI_MISO, // PB22
+  //PIN_SPI_MOSI, // PB23
+  //PIN_SPI_SCK,  // PA17 (also SCL0 should be changed)
+  PIN_SD_MISO, // PA18
+  PIN_SD_MOSI, // PA19
+  PIN_SD_SCK,  // PA17
+  PIN_SD_CS, // PA16
 
   // --------- USB -----------
 
@@ -114,10 +118,10 @@ enum Pinsymbol {
 
   ENUM_QSPI_SCK,
   ENUM_CS,
-  IO0,
-  IO1,
-  IO2,
-  IO3,
+  D0,
+  D1,
+  D2,
+  D3,
 
   // --------- CAN0 (TX, RX) ----------
 
@@ -137,19 +141,22 @@ enum Pinsymbol {
   PA03, // also AREF
   PA04, // (has PWM)
   PA05, // also DAC1 (has PWM)
+  PA06, 
+  PA07,
   PA12, // also SDA1 (has PWM)
   PA13, // also SCL1 (has PWM)
   PA16, // also SDA0 (has PWM)
   PA17, // also SCL0 (has PWM)
   PA18, // (has PWM)
   PA19, // (has PWM)
+  PA21, //SD card detect
   PA22, // also CAN0_TX (has PWM)
   PA23, // also CAN0_RX (has PWM)
   PA27,
 
-  PB00,
-  PB01,
-  PB02,
+  PB00, 
+  PB01, 
+  PB02, 
   PB03,
   PB04,
   PB05,
@@ -160,6 +167,8 @@ enum Pinsymbol {
   PB13,
   PB14,
   PB15,
+  PB16,
+  PB17,
   PB22,
   PB23,
   PB30,
@@ -187,10 +196,12 @@ enum Pinsymbol {
 #define portModeRegister(port)     ( &(port->DIR.reg) )
 #define digitalPinHasPWM(P)        ( g_APinDescription[P].ulPWMChannel != NOT_ON_PWM || g_APinDescription[P].ulTCChannel != NOT_ON_TIMER )
 
-// additional symbol definitions used by arduino core
+// LEDS
 
-//LEDS
-#define LEG_G                PB13
+#define LED_G             PB13 
+#define SWITCH            PB12
+
+// additional symbol definitions used by arduino core
 
 #define PIN_DAC0             DAC0     // PA02
 #define PIN_DAC1             DAC1     // PA05
